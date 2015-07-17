@@ -10,14 +10,23 @@
 
 	<p class="title center">Vantage</p>
 	<p class="center">A sales representative web application</p>
+	<br />
+	<p class="center"><a href="#/login">login</a></p>
+	<br />
+	<div ng-view></div>
 
-	<div ng-controller="MyCtrl">
-		<ul>
-			<li ng-repeat="datum in data">{{datum}}</li>
-		</ul>
-	</div>
-
+	<!-- Vendor scripts -->
 	<script src="assets/js/lib/angular.min.js"></script>
+	<script src="assets/js/lib/angular-route.min.js"></script>
+	<script src="assets/js/lib/angular-resource.min.js"></script>
+	<script src="assets/js/lib/angular-md5.min.js"></script>
+	<script src="assets/js/lib/angular-base64.min.js"></script>
+	<!-- App modules -->
 	<script src="assets/js/vantage.js"></script>
+	<!-- Controllers -->
+	<script src="assets/js/ctrl/login-ctrl.js"></script>
+	<!-- Services -->
+	<script src="assets/js/svc/auth-svc.js"></script>
+	<script src="assets/js/svc/login-svc.js"></script>
 </body>
 </html>

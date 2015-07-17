@@ -16,6 +16,10 @@
     "tests"
   ],
   "dependencies": {
-    "angular": "~1.4.3"
+    "angular": "~1.4.3",
+    "angular-route": "~1.4.3",
+    "angular-resource": "~1.4.3",
+    "angular-md5": "~0.1.7",
+    "angular-base64": "~2.0.5"
   }
 }

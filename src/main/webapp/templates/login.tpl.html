@@ -1,0 +1,7 @@
+<form name="loginFrm" ng-submit="login()" style="padding: 10px">
+	<input type="text" placeholder="username" ng-model="reqObj.user.username" required>
+	<input type="password" placeholder="********" ng-model="reqObj.user.password" required>
+
+	<button ng-disabled="loginFrm.$invalid">Login</button>
+</form>
+<p style="color: red">{{ errorMsg }}</p>

@@ -32,6 +32,26 @@ module.exports = ( grunt ) ->
 				cwd: "<%= path.scripts.vendorSrc %>/angular/"
 				src: [ "angular.min.js" ]
 				dest: "<%= path.scripts.vendorDest %>/"
+			angularRoute:
+				expand: true
+				cwd: "<%= path.scripts.vendorSrc %>/angular-route/"
+				src: [ "angular-route.min.js" ]
+				dest: "<%= path.scripts.vendorDest %>/"
+			angularResource:
+				expand: true
+				cwd: "<%= path.scripts.vendorSrc %>/angular-resource/"
+				src: [ "angular-resource.min.js" ]
+				dest: "<%= path.scripts.vendorDest %>/"
+			angularMD5:
+				expand: true
+				cwd: "<%= path.scripts.vendorSrc %>/angular-md5/"
+				src: [ "angular-md5.min.js" ]
+				dest: "<%= path.scripts.vendorDest %>/"
+			angularBase64:
+				expand: true
+				cwd: "<%= path.scripts.vendorSrc %>/angular-base64/"
+				src: [ "angular-base64.min.js" ]
+				dest: "<%= path.scripts.vendorDest %>/"
 
 		# SASS @task
 		sass:
@@ -53,4 +73,8 @@ module.exports = ( grunt ) ->
 	grunt.registerTask "default", "Sets up the app so it can run", [
 		"sass"
 		"copy:angular"
+		"copy:angularRoute"
+		"copy:angularResource"
+		"copy:angularMD5"
+		"copy:angularBase64"
 	]

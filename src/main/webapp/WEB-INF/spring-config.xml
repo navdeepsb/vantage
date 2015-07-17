@@ -54,5 +54,6 @@
 
 	<!-- Mapping for static resources -->
 	<mvc:resources mapping="/assets/**" location="/assets/" />
+	<mvc:resources mapping="/templates/**" location="/templates/" />
 
 </beans>
