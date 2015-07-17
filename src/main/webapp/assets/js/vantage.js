@@ -7,7 +7,7 @@
  *     + angular-md5  - For MD5 functionalities
  *     + base64       - For encoding / decoding in Base64 format
  */
-var vantage = angular.module( "vantage", [ "ngRoute", "ngResource", "angular-md5", "base64" ] )
+var vantage = angular.module( "vantage", [ "ngRoute", "ngResource", "ngCookies", "angular-md5", "base64" ] )
 	.config( function( $routeProvider, $locationProvider ) {
 
 		// Set up the app routes:
@@ -16,8 +16,20 @@ var vantage = angular.module( "vantage", [ "ngRoute", "ngResource", "angular-md5
 				templateUrl : "templates/login.tpl.html",
 				controller  : "loginCtrl"
 			})
+			.when( "/logout", {
+				template    : "Logged out successfully!",
+				controller  : "logoutCtrl"
+			})
 			.when( "/customers", {
-				template    : "<p class=\"center\">Login successful!</p>"
+				templateUrl : "templates/customer-list.tpl.html",
+				controller  : "customerCtrl"
+			})
+			.when( "/customers/:customerId", {
+				templateUrl : "templates/customer-details.tpl.html",
+				controller  : "customerDetailsCtrl"
+			})
+			.otherwise({
+				redirectTo  : "/login"
 			});
 
 		/**

@@ -20,6 +20,7 @@
     "angular-route": "~1.4.3",
     "angular-resource": "~1.4.3",
     "angular-md5": "~0.1.7",
-    "angular-base64": "~2.0.5"
+    "angular-base64": "~2.0.5",
+    "angular-cookies": "~1.4.3"
   }
 }

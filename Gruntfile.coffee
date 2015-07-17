@@ -42,6 +42,11 @@ module.exports = ( grunt ) ->
 				cwd: "<%= path.scripts.vendorSrc %>/angular-resource/"
 				src: [ "angular-resource.min.js" ]
 				dest: "<%= path.scripts.vendorDest %>/"
+			angularCookies:
+				expand: true
+				cwd: "<%= path.scripts.vendorSrc %>/angular-cookies/"
+				src: [ "angular-cookies.min.js" ]
+				dest: "<%= path.scripts.vendorDest %>/"
 			angularMD5:
 				expand: true
 				cwd: "<%= path.scripts.vendorSrc %>/angular-md5/"
@@ -75,6 +80,7 @@ module.exports = ( grunt ) ->
 		"copy:angular"
 		"copy:angularRoute"
 		"copy:angularResource"
+		"copy:angularCookies"
 		"copy:angularMD5"
 		"copy:angularBase64"
 	]

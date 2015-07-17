@@ -1,0 +1,21 @@
+<ul style="line-height: 2">
+	<li ng-repeat="customer in customers">
+		<span ng-hide="!customer.customername">
+			<strong>Name</strong> {{ customer.customername }}
+			<br />
+		</span>
+		<span ng-hide="!customer.productname">
+			<strong>Product</strong> {{ customer.productname }}
+			<br />
+		</span>
+		<span ng-hide="!customer.status">
+			<strong>Status</strong> {{ customer.status }}
+			<br />
+		</span>
+		<span ng-hide="!customer.notes">
+			<strong>Notes</strong> {{ customer.notes }}
+			<br />
+		</span>
+		<a href="#/customers/{{ customer.id }}">view details</a>
+	</li>
+</ul>

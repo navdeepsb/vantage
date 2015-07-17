@@ -1,0 +1,59 @@
+<div style="padding: 10px">
+	<p>Customer details</p>
+	<span ng-hide="!customer.customername">
+		<strong>Name</strong> {{ customer.customername }}
+		<br />
+	</span>
+	<span ng-hide="!customer.productname">
+		<strong>Product</strong> {{ customer.productname }}
+		<br />
+	</span>
+	<span ng-hide="!customer.status">
+		<strong>Status</strong> {{ customer.status }}
+		<br />
+	</span>
+	<span ng-hide="!customer.notes">
+		<strong>Notes</strong> {{ customer.notes }}
+		<br />
+	</span>
+	<br />
+	<p>Addresses</p>
+	<ul style="line-height: 2">
+		<li ng-repeat="address in customer.addresses">
+			{{ address.street1 }} <span ng-hide="!address.street2">, {{ address.street2 }}</span>
+			<br />
+			{{ address.city }} - {{ address.pincode }}
+			<br />
+			{{ address.state }}, {{ address.country }}
+		</li>
+	</ul>
+	<br />
+	<p>Communications</p>
+	<ul style="line-height: 2">
+		<li ng-repeat="comm in customer.communications">
+			<strong>Category</strong> {{ comm.category }}
+			<br />
+			<strong>Type</strong> {{ comm.type }}
+			<br />
+			<strong>Value</strong> {{ comm.value }}
+		</li>
+	</ul>
+	<br />
+	<p>Visit</p>
+	<span ng-hide="!customer.visit.date">
+		<strong>Date</strong> {{ customer.visit.date | date }}
+		<br />
+	</span>
+	<span ng-hide="!customer.visit.time">
+		<strong>Time</strong> {{ customer.visit.time }}
+		<br />
+	</span>
+	<span ng-hide="!customer.visit.action">
+		<strong>Action</strong> {{ customer.visit.action }}
+		<br />
+	</span>
+	<span ng-hide="!customer.visit.notes">
+		<strong>Notes</strong> {{ customer.visit.notes }}
+		<br />
+	</span>
+</div>

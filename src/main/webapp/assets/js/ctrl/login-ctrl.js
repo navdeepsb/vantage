@@ -2,10 +2,12 @@
  * @controller For controlling the login activity
  * @name loginCtrl
  * @dependency
- *     + loginSvc  - Service for handling the login process
- *     + authSvc   - Service providing authentication methods like Base64 encode, etc.
+ *     + $location  - Service for navigation
+ *     + $cookies   - Service for managing cookies
+ *     + loginSvc   - Service for handling the login process
+ *     + authSvc    - Service providing authentication methods like Base64 encode, etc.
  */
-vantage.controller( "loginCtrl", [ "$scope", "$location", "loginSvc", "authSvc", function( $scope, $location, loginSvc, authSvc ) {
+vantage.controller( "loginCtrl", [ "$scope", "$location", "$cookies", "loginSvc", "authSvc", function( $scope, $location, $cookies, loginSvc, authSvc ) {
 
 	// Defined by backend:
 	var STATUS_CODES = {
@@ -28,14 +30,13 @@ vantage.controller( "loginCtrl", [ "$scope", "$location", "loginSvc", "authSvc",
 		loginSvc.save({}, $scope.reqObj, function( response ) {
 			console.log( response.code + " : " + response.message );
 			if( response.code === STATUS_CODES.SUCCESS ) {
+				$cookies.put( "sessionId", response.sessionId );
 				$location.url( "customers" );
-				console.log( "Hurray!" );
 			}
 			else {
 				$scope.errorMsg = response.message || "An error has occurred!";
 			}
 		});
-
 	};
 
 }]);
