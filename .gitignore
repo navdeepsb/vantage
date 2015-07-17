@@ -1,0 +1,11 @@
+# Grunt plugins
+node_modules
+
+# Project dependencies
+bower_components
+
+# Tomcat:
+tomcat.8080
+
+# Other
+.DS_Store
