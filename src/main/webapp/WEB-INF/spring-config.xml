@@ -51,4 +51,8 @@
 	<bean id="customerService" class="com.frontenddev.sra.service.CustomerServiceImpl"></bean>
 	<bean id="userDao" class="com.frontenddev.sra.dao.UserDaoImpl"></bean>
 	<bean id="userService" class="com.frontenddev.sra.service.UserServiceImpl"></bean>
+
+	<!-- Mapping for static resources -->
+	<mvc:resources mapping="/assets/**" location="/assets/" />
+
 </beans>

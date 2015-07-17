@@ -37,7 +37,7 @@ Setting up
 
 Follow this section only after installing all the pre-requisites listed in the previous section.
 
-1. Setup the database using the following commands in a terminal
+1. Setup the database by executing the following commands one-by-one in a terminal
 
     - `mysql -u <username> -p<password>`
     - `CREATE DATABASE sales_rep`

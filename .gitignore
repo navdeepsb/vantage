@@ -4,8 +4,18 @@ node_modules
 # Project dependencies
 bower_components
 
+# Build
+.sass-cache
+src/main/webapp/assets/css/*.css
+src/main/webapp/assets/css/*.css.map
+src/main/webapp/assets/js/lib/*.js
+
+# Todo
+todo.md
+
 # Tomcat:
 tomcat.8080
 
 # Other
 .DS_Store
+requirement.md

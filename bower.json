@@ -1,0 +1,21 @@
+{
+  "name": "vantage",
+  "version": "0.0.0",
+  "homepage": "https://github.com/navdeepsb/vantage",
+  "authors": [
+    "Navdeep Singh Bagga <navdeepb3191@gmail.com>"
+  ],
+  "description": "A sales representative web application",
+  "main": "src/main/webapp/index.jsp",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.3"
+  }
+}
