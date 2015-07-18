@@ -1,0 +1,1 @@
+Contains stylesheets specific to the web application i.e. non-general styles.

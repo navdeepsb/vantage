@@ -1,6 +1,6 @@
 //////////////////////////////////////////////////////////////////////////
 // @desc                                                                //
-// The mother stylesheet importing all other necessary styles           //
+// The mother stylesheet importing all other stylesheets                //
 //                                                                      //
 // @author                                                              //
 // Navdeep                                                              //
@@ -13,6 +13,7 @@
 
 // Import partials
 @import "partials/reset"
+@import "partials/typography"
 @import "partials/util"
 
 // Import layout
@@ -25,3 +26,7 @@
 @import "components/inputs.styl"
 @import "components/forms.styl"
 @import "components/imgs.styl"
+@import "components/selects.styl"
+
+// Import website-specific styles
+@import "specifics/customer.styl"
