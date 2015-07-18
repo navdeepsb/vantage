@@ -55,7 +55,7 @@ Follow this section only after installing all the pre-requisites listed in the p
 
     - Open terminal window
     - Navigate to the project directory (it is the directory containing this README)
-    - Type `grunt install`
+    - Type `npm install`
     - Wait for the plugins to download
 
 4. Configure the MySQL password in the web application. Follow these steps if your MySQL server password is other than the defaule password i.e. `password`
