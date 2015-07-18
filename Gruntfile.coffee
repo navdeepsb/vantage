@@ -7,7 +7,7 @@ module.exports = ( grunt ) ->
 
 	# Load all the plugins:
 	grunt.loadNpmTasks "grunt-contrib-copy"
-	grunt.loadNpmTasks "grunt-contrib-sass"
+	grunt.loadNpmTasks "grunt-contrib-stylus"
 	grunt.loadNpmTasks "grunt-contrib-watch"
 
 	# Config storing all the important paths:
@@ -21,6 +21,9 @@ module.exports = ( grunt ) ->
 
 	# Intialize the tasks to perform accordingly:
 	grunt.initConfig
+
+		# Store the `package.json` file in a nifty variable:
+		pkg: grunt.file.readJSON "package.json"
 
 		# Get the path config inside this closure:
 		path: pathConfig
@@ -58,25 +61,30 @@ module.exports = ( grunt ) ->
 				src: [ "angular-base64.min.js" ]
 				dest: "<%= path.scripts.vendorDest %>/"
 
-		# SASS @task
-		sass:
+		# Stylus @task
+		stylus:
 			options:
-				update: true,     # To only compile changed files
-				trace: true,      # To show a full traceback on error
-				style: "expanded" # [ "nested", "compact", "compressed", "expanded" ]
-			styles:
+				compress: false
+				banner: """
+					/*!
+					 * <%= pkg.name %>
+					 * @ver <%= pkg.version %>
+					 * @author <%= pkg.author %>
+					 */\n
+					"""
+			main:
 				files:
-					"<%= path.styles.built %>/main.css" : "<%= path.styles.preprocess %>/index.scss"
+					"<%= path.styles.built %>/main.css" : "<%= path.styles.preprocess %>/index.styl"
 
 		# Watch @task
 		watch:
 			styles:
-				files: [ "<%= path.styles.preprocess %>/{,*/}*.scss" ]
-				tasks: [ "sass" ]
+				files: [ "<%= path.styles.preprocess %>/{,*/}*.styl" ]
+				tasks: [ "stylus" ]
 
 	# Register tasks:
 	grunt.registerTask "default", "Sets up the app so it can run", [
-		"sass"
+		"stylus"
 		"copy:angular"
 		"copy:angularRoute"
 		"copy:angularResource"

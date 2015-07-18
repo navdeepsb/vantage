@@ -1,0 +1,30 @@
+/**
+ * @desc
+ * Cooks up the necessary styles for a button element
+ *
+ * @arg $color      - The color of the button text
+ * @arg $background - The background of the button text
+ * @arg $isRounded  - Whether rounded edges required or not
+ */
+buttonify( $color, $background, $isRounded = false )
+	color $color
+	background $background
+	if $isRounded
+		border-radius 1.6rem
+
+	&:hover
+		background darken( @background, 5% )
+
+	&:active
+		background darken( @background, 10% )
+
+
+/**
+ * @desc
+ * Clearfix for floating elements
+ */
+clearfix()
+	&:after
+		content ""
+		display table
+		clear both

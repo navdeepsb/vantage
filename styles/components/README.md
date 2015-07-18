@@ -1,0 +1,1 @@
+This folder contains stylesheets for website components like buttons, inputs, tooltips, etc.

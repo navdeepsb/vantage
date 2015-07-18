@@ -1,0 +1,1 @@
+This folder contains stylesheets related to layout of the website like header, nav, etc.

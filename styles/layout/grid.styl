@@ -1,0 +1,19 @@
+// Variables:
+gutter = 10px
+
+.grid
+	clearfix()
+
+.col
+	float left
+	padding gutter 0 gutter gutter
+
+	.grid &:last-of-type
+		padding-right gutter
+
+	.grid &.no-gutter
+		padding 0
+
+for num in ( 1..12 )
+	.col-{num}
+		width ( num / 12 * 100 )%

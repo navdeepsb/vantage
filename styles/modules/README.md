@@ -1,0 +1,1 @@
+This folder contains those stylesheets that themselves do not compile into CSS.

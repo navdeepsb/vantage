@@ -1,5 +1,7 @@
-<ul style="line-height: 2">
+<ul class="list">
 	<li ng-repeat="customer in customers">
+		<strong>ID</strong> {{ customer.id }}
+		<br />
 		<span ng-hide="!customer.customername">
 			<strong>Name</strong> {{ customer.customername }}
 			<br />
@@ -10,10 +12,6 @@
 		</span>
 		<span ng-hide="!customer.status">
 			<strong>Status</strong> {{ customer.status }}
-			<br />
-		</span>
-		<span ng-hide="!customer.notes">
-			<strong>Notes</strong> {{ customer.notes }}
 			<br />
 		</span>
 		<a href="#/customers/{{ customer.id }}">view details</a>

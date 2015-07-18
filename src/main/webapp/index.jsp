@@ -6,22 +6,37 @@
 	<title>Vantage</title>
 	<link rel="stylesheet" href="assets/css/main.css">
 </head>
-<body>
-
-	<p class="title center">Vantage</p>
-	<p class="center">A sales representative web application</p>
+<body ng-cloak>
+	<div class="center" ng-controller="navbarCtrl">
+		<p ng-hide="isLoggedIn">
+			<br />
+			<br />
+			<img src="assets/img/vantage-logo-white.png" alt="Vantage" width="100">
+			<br />
+			<img src="assets/img/vantage-logo-text-white.png" alt="Vantage" width="110">
+		</p>
+		<br />
+		<div class="grid" ng-show="isLoggedIn">
+			<div class="col col-6 t-left">
+				<img src="assets/img/vantage-logo-white.png" alt="Vantage" width="70">
+			</div>
+			<div class="col col-6 no-gutter t-right" style="padding-top: 20px">
+				<img src="assets/img/user-white.png" alt="User" width="40" class="align-middle">
+				&nbsp;
+				John Doe
+				&nbsp;
+				|
+				&nbsp;
+				<a href="#/logout">Logout</a>
+			</div>
+		</div>
+	</div>
 
 	<br />
 
-	<p class="center" ng-controller="navbarCtrl">
-		<a href="#/customers">customers</a>
-		<a href="#/login" ng-hide="isLoggedIn">login</a>
-		<a href="#/logout" ng-show="isLoggedIn">logout</a>
-	</p>
-
-	<br />
-
-	<div ng-view></div>
+	<div class="container">
+		<div ng-view></div>
+	</div>
 
 	<!-- Vendor scripts -->
 	<script src="assets/js/lib/angular.min.js"></script>

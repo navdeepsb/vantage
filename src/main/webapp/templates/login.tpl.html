@@ -1,7 +1,28 @@
-<form name="loginFrm" ng-submit="login()" style="padding: 10px">
-	<input type="text" placeholder="username" ng-model="reqObj.user.username" required>
-	<input type="password" placeholder="********" ng-model="reqObj.user.password" required>
+<div class="center">
+	<form name="loginFrm" class="col-4 inline-blk" ng-submit="login()">
+		<div class="grid">
+			<div class="col col-2 ico--login">
+				<label for="username">
+					<img src="assets/img/user-gray.png" alt="Username">
+				</label>
+			</div>
+			<div class="col col-10 no-gutter">
+				<input id="username" type="text" class="frm-ctrl width-full tb--login" placeholder="Username" ng-model="reqObj.user.username" autocomplete="off" spellcheck="false" required>
+			</div>
+		</div>
+		<hr />
+		<div class="grid">
+			<div class="col col-2 ico--login">
+				<label for="password">
+					<img src="assets/img/padlock-gray.png" alt="Password">
+				</label>
+			</div>
+			<div class="col col-10 no-gutter">
+				<input id="password" type="password" class="frm-ctrl width-full tb--login" placeholder="Password" ng-model="reqObj.user.password" required>
+			</div>
+		</div>
 
-	<button ng-disabled="loginFrm.$invalid">Login</button>
-</form>
-<p style="color: red">{{ errorMsg }}</p>
+		<button class="frm-ctrl btn width-full" ng-disabled="loginFrm.$invalid && false">Login</button>
+	</form>
+	<p>{{ errorMsg }}</p>
+</div>
