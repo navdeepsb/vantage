@@ -15,5 +15,11 @@ gutter = 10px
 		padding 0
 
 for num in ( 1..12 )
+	.span-{num}
+		// These classes are flexible with their `width`s
+		width 100%
+		@media medium
+			width ( num / 12 * 100 )%
 	.col-{num}
+		// These classes will always stand their `width`
 		width ( num / 12 * 100 )%

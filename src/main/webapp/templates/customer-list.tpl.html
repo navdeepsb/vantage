@@ -1,5 +1,5 @@
 <div class="grid">
-	<div class="col col-3" style="padding-left: 20px">
+	<div class="col span-3 list-control">
 		<span class="small upper">Showing</span>
 		<br />
 		<select name="custFltr" class="frm-ctrl dropdown" ng-model="custFltr">
@@ -12,7 +12,7 @@
 			<option value="Support">Support</option>
 		</select>
 	</div>
-	<div class="col col-3">
+	<div class="col span-3 list-control">
 		<span class="small upper">Sorted by</span>
 		<br />
 		<select name="custSortOrder" class="frm-ctrl dropdown" ng-model="sortOrder">
@@ -21,13 +21,13 @@
 			<option value="-customername">Name Z-A</option>
 		</select>
 	</div>
-	<div class="col col-6 t-right" style="padding-right: 20px">
+	<div class="col span-6 t-right list-control">
 		<br />
 		<input type="image" class="frm-ctrl btn btn--sq" src="assets/img/reload-white.png" width="50" ng-click="reload()">
 	</div>
 </div>
 <div class="grid">
-	<div class="col-4 inline-blk" ng-repeat="customer in filteredCustomers = ( customers | orderBy:sortOrder | filter:custFltr )" style="padding: 20px">
+	<div class="span-4 card__wrapper inline-blk" ng-repeat="customer in filteredCustomers = ( customers | orderBy:sortOrder | filter:custFltr )">
 		<a href="#/customers/{{ customer.id }}" class="card">
 			<div class="card__header center">
 				{{ customer.customername }}
