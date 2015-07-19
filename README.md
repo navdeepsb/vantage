@@ -68,6 +68,13 @@ Follow this section only after installing all the pre-requisites listed in the p
         <property name="password" value="myPassword" />
         ```
 
+5. Set up the development environment
+
+    - Open terminal window
+    - Navigate to the project directory (it is the directory containing this README)
+    - Type `grunt`
+    - Wait for the tasks to execute
+
 _NOTE: These steps need to be followed only once_
 
 
