@@ -11,7 +11,7 @@
 			<option value="Rejected">Rejected</option>
 			<option value="Support">Support</option>
 		</select>
-	</div>
+	</div><!-- .span-3 -->
 	<div class="col span-3 list-control">
 		<span class="small upper">Sorted by</span>
 		<br />
@@ -20,49 +20,49 @@
 			<option value="customername">Name A-Z</option>
 			<option value="-customername">Name Z-A</option>
 		</select>
-	</div>
+	</div><!-- .span-3 -->
 	<div class="col span-6 t-right list-control">
 		<br />
 		<input type="image" class="frm-ctrl btn btn--sq" src="assets/img/reload-white.png" width="50" ng-click="reload()">
-	</div>
-</div>
+	</div><!-- .span-6 -->
+</div><!-- .grid -->
 <div class="grid">
 	<div class="span-4 card__wrapper inline-blk" ng-repeat="customer in filteredCustomers = ( customers | orderBy:sortOrder | filter:custFltr )">
 		<a href="#/customers/{{ customer.id }}" class="card">
 			<div class="card__header center">
 				{{ customer.customername }}
-			</div>
+			</div><!-- .card__header -->
 			<div class="card__inner">
 				<div class="grid">
 					<div class="col col-4">
 						<span class="small upper">Cust ID</span>
-					</div>
+					</div><!-- .col-4 -->
 					<div class="col col-8 t-right">
 						{{ customer.id }}
-					</div>
-				</div>
+					</div><!-- .col-8 -->
+				</div><!-- .grid -->
 				<div class="grid">
 					<div class="col col-4">
 						<span class="small upper">Product</span>
-					</div>
+					</div><!-- .col-4 -->
 					<div class="col col-8 t-right">
 						{{ customer.productname }}
-					</div>
-				</div>
+					</div><!-- .col-8 -->
+				</div><!-- .grid -->
 				<hr />
 				<div class="grid">
 					<div class="col col-4">
 						<span class="small upper">Status</span>
-					</div>
+					</div><!-- .col-4 -->
 					<div class="col col-8 t-right">
 						{{ customer.status }}
-					</div>
-				</div>
-			</div>
-		</a>
-	</div>
+					</div><!-- .col-8 -->
+				</div><!-- .grid -->
+			</div><!-- .card__inner -->
+		</a><!-- .card -->
+	</div><!-- .span-4 -->
 	<p class="center" ng-show="!filteredCustomers.length">
 		<br />
 		No customers found
 	</p>
-</div>
+</div><!-- .grid -->

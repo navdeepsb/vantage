@@ -8,9 +8,9 @@
 vantage.controller( "headerCtrl", [ "$scope", "$rootScope", "currUserSvc", function( $scope, $rootScope, currUserSvc ) {
 
 	// Set the logged in status:
-	$rootScope.isLoggedIn = currUserSvc.isLoggedIn();
+	$rootScope.isLoggedIn   = currUserSvc.isLoggedIn();
 
 	// Set the display name, too:
-	$rootScope.userDispName   = currUserSvc.getData().fullName;
+	$rootScope.userDispName = currUserSvc.getData().fullName;
 
 }]);

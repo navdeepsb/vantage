@@ -3,6 +3,7 @@ Vantage
 
 A sales representative web application
 
+_NOTE: This README has been prepared on the basis of steps performed on a Windows machine_
 
 Prerequisites
 -------------

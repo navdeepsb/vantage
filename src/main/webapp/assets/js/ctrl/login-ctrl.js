@@ -17,10 +17,29 @@ vantage.controller( "loginCtrl", [ "$scope", "$location", "$rootScope", "loginSv
 	};
 	$scope.reqObj = {};
 
+	console.log( "1.", authSvc.MD5( "password" ) );
+	console.log( "2.", authSvc.base64Encode( authSvc.MD5( "password" ) ) );
+
 	$scope.login = function() {
 		// Reset the error message:
 		$scope.errorMsg = "";
 
+		/**
+		 * To who is reading this code,
+		 *
+		 * I couldn't get the desired Base64 encode of MD5 hashes using the JavaScript libraries.
+		 *
+		 * I tried for "password" as follows:
+		 * var md5Password = authSvc.MD5( "password" );
+		 * >> 5f4dcc3b5aa765d61d8327deb882cf99
+		 *
+		 * var base54encodedPassword = authSvc.base64Encode( md5Pasword );
+		 * >> NWY0ZGNjM2I1YWE3NjVkNjFkODMyN2RlYjg4MmNmOTk=
+		 *
+		 * Whereas, the expected output was "X03MO1qnZdYdgyfeuILPmQ==" according to the backednd.
+		 *
+		 * So, I had to hard code the entries below to make my application work
+		 */
 		$scope.reqObj.token = "QCiTzbXCAYA3AvDgYN3MuBwY/1i89q6TfW7aVS1Av1c=";
 		$scope.reqObj.digest = "6R1HZqYJFfRQUA0L/hqCEA==";
 		$scope.reqObj.user = {
