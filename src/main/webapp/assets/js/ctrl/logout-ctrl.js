@@ -2,10 +2,12 @@
  * @controller For controlling the logout activity
  * @name logoutCtrl
  * @dependency
- *     + $cookies   - Service for managing cookies
- *     + logoutSvc  - Service for handling the login process
+ *     + $rootScope  - Service for managing the app's root scope
+ *     + $location   - Service for navigation
+ *     + logoutSvc   - Service for handling the login process
+ *     + currUserSvc  - Service for managing current logged-in user's data
  */
-vantage.controller( "logoutCtrl", [ "$scope", "$cookies", "logoutSvc", function( $scope, $cookies, logoutSvc ) {
+vantage.controller( "logoutCtrl", [ "$scope", "$rootScope", "$location", "logoutSvc", "currUserSvc", function( $scope, $rootScope, $location, logoutSvc, currUserSvc ) {
 
 	// Defined by backend:
 	var STATUS_CODES = {
@@ -13,15 +15,20 @@ vantage.controller( "logoutCtrl", [ "$scope", "$cookies", "logoutSvc", function(
 		ERROR   : 1,
 	};
 
-	var sessionId = $cookies.get( "sessionId" );
+	var toSend = {
+		"sessionId"  : currUserSvc.getData().sessionId
+	};
 
-	logoutSvc.save({}, { "sessionId": sessionId }, function( response ) {
-		console.log( response.code + " : " + response.message );
+	logoutSvc.save({}, toSend, function( response ) {
 		if( response.code === STATUS_CODES.SUCCESS ) {
-			$cookies.remove( "sessionId" );
+			// Unset the attributes of this user:
+			currUserSvc.unsetData();
+			$rootScope.isLoggedIn = false;
+			// Navigate to the login page:
+			$location.url( "login" );
 		}
 		else {
-			$scope.errorMsg = response.message || "An error has occurred!";
+			console.log( "Error occurred for logout:", response );
 		}
 	});
 

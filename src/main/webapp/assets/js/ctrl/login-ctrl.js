@@ -2,12 +2,13 @@
  * @controller For controlling the login activity
  * @name loginCtrl
  * @dependency
- *     + $location  - Service for navigation
- *     + $cookies   - Service for managing cookies
- *     + loginSvc   - Service for handling the login process
- *     + authSvc    - Service providing authentication methods like Base64 encode, etc.
+ *     + $location    - Service for navigation
+ *     + $rootScope   - Service for managing the app's root scope
+ *     + loginSvc     - Service for handling the login process
+ *     + authSvc      - Service providing authentication methods like Base64 encode, etc.
+ *     + currUserSvc  - Service for managing current logged-in user's data
  */
-vantage.controller( "loginCtrl", [ "$scope", "$location", "$cookies", "loginSvc", "authSvc", function( $scope, $location, $cookies, loginSvc, authSvc ) {
+vantage.controller( "loginCtrl", [ "$scope", "$location", "$rootScope", "loginSvc", "authSvc", "currUserSvc", function( $scope, $location, $rootScope, loginSvc, authSvc, currUserSvc ) {
 
 	// Defined by backend:
 	var STATUS_CODES = {
@@ -28,15 +29,26 @@ vantage.controller( "loginCtrl", [ "$scope", "$location", "$cookies", "loginSvc"
 		};
 
 		loginSvc.save({}, $scope.reqObj, function( response ) {
-			console.log( response.code + " : " + response.message );
 			if( response.code === STATUS_CODES.SUCCESS ) {
-				$cookies.put( "sessionId", response.sessionId );
+				// Set the various attributes of this user for this session:
+				currUserSvc.setData( response.sessionId, response.data.username, getFullName( response.data ) );
+				$rootScope.isLoggedIn   = currUserSvc.isLoggedIn();
+				$rootScope.userDispName = currUserSvc.getData().fullName;
+				// Navigate to this user's customer page:
 				$location.url( "customers" );
 			}
 			else {
+				// Show error message on the UI:
 				$scope.errorMsg = response.message || "An error has occurred!";
 			}
 		});
+	};
+
+	/**
+	 * @desc Returns the full name of the user, falls back to username
+	 */
+	var getFullName = function( user ) {
+		return ( user.firstname + " " + user.lastname ).trim() || user.username;
 	};
 
 }]);

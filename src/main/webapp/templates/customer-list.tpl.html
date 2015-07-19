@@ -27,7 +27,7 @@
 	</div>
 </div>
 <div class="grid">
-	<div class="col-4 inline-blk" ng-repeat="customer in customers | orderBy:sortOrder | filter:custFltr" style="padding: 20px">
+	<div class="col-4 inline-blk" ng-repeat="customer in filteredCustomers = ( customers | orderBy:sortOrder | filter:custFltr )" style="padding: 20px">
 		<a href="#/customers/{{ customer.id }}" class="card">
 			<div class="card__header center">
 				{{ customer.customername }}
@@ -61,4 +61,8 @@
 			</div>
 		</a>
 	</div>
+	<p class="center" ng-show="!filteredCustomers.length">
+		<br />
+		No customers found
+	</p>
 </div>

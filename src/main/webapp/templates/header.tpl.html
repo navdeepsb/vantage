@@ -1,0 +1,25 @@
+<div class="center" ng-controller="headerCtrl">
+	<p ng-hide="isLoggedIn">
+		<br />
+		<br />
+		<img src="assets/img/vantage-logo-white.png" alt="Vantage" width="100">
+		<br />
+		<img src="assets/img/vantage-logo-text-white.png" alt="Vantage" width="110">
+	</p>
+	<br />
+	<div class="grid" ng-show="isLoggedIn">
+		<div class="col col-6 t-left">
+			<img src="assets/img/vantage-logo-white.png" alt="Vantage" width="70">
+		</div>
+		<div class="col col-6 no-gutter t-right" style="padding-top: 20px">
+			<img src="assets/img/user-white.png" alt="User" width="40" class="align-middle">
+			&nbsp;
+			{{ userDispName }}
+			&nbsp;
+			|
+			&nbsp;
+			<a href="#/logout">Logout</a>
+		</div>
+	</div>
+</div>
+<br />

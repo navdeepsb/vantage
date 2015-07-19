@@ -2,12 +2,11 @@
  * @controller For controlling the customer details activities
  * @name customerDetailsCtrl
  * @dependency
- *     + $location           - Service for navigation
- *     + $cookies            - Service for managing cookies
  *     + $routeParams        - Service for getting route parameters from the URL
+ *     + currUserSvc         - Service for managing current logged-in user's data
  *     + customerDetailsSvc  - Service for handling the customer details activities
  */
-vantage.controller( "customerDetailsCtrl", [ "$scope", "$location", "$cookies", "$routeParams", "customerDetailsSvc", function( $scope, $location, $cookies, $routeParams, customerDetailsSvc ) {
+vantage.controller( "customerDetailsCtrl", [ "$scope", "$routeParams", "currUserSvc", "customerDetailsSvc", function( $scope, $routeParams, currUserSvc, customerDetailsSvc ) {
 
 	// Defined by backend:
 	var STATUS_CODES = {
@@ -15,20 +14,17 @@ vantage.controller( "customerDetailsCtrl", [ "$scope", "$location", "$cookies", 
 		ERROR   : 1,
 	};
 
-	console.log( "Route params:", $routeParams );
-	var sessionId = $cookies.get( "sessionId" );
-	var toSend    = {
-		"sessionId"  : sessionId,
+	var toSend = {
+		"sessionId"  : currUserSvc.getData().sessionId,
 		"customerid" : $routeParams.customerId
 	};
 
 	customerDetailsSvc.save({}, toSend, function( response ) {
 		if( response.code === STATUS_CODES.SUCCESS ) {
-			console.log( "Success!", response );
 			$scope.customer = response.data;
 		}
 		else {
-			console.log( "Error!", response );
+			console.log( "Error occurred for fetching customer details:", response );
 		}
 	});
 
